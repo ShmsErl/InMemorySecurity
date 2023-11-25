@@ -79,44 +79,5 @@ public class SecurityConfig {
 
 
 
-/*
-    @Bean
-    public UserDetailsService userDetailsService() {
 
-        UserDetails peter = User.builder().username("peter").password(passwordEncoder().encode("peter")).roles("USER")
-                .build();
-
-        UserDetails admin = User.builder().username("admin").password(passwordEncoder().encode("admin")).roles("ADMIN")
-                .build();
-        return new InMemoryUserDetailsManager(peter,admin);
-    }
-
-    @Bean
-    public BCryptPasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
-
-    @Bean
-    SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http.csrf(AbstractHttpConfigurer::disable)
-                .authorizeHttpRequests(x -> x.requestMatchers("/private").permitAll())
-                .authorizeHttpRequests((authorize) -> {
-            authorize.anyRequest().authenticated();
-        }).httpBasic(Customizer.withDefaults());
-        return http.build();
-    }
-
-/*    @Bean
-    public SecurityFilterChain filterChain(HttpSecurity security) throws Exception {
-        security
-
-                .headers(x -> x.frameOptions(HeadersConfigurer.FrameOptionsConfig::disable))
-                .csrf(AbstractHttpConfigurer::disable)
-                .formLogin(AbstractHttpConfigurer::disable)
-                .authorizeHttpRequests(x -> x.requestMatchers(  "/public/**", "/auth/**").permitAll())
-
-                .httpBasic(Customizer.withDefaults());
-
-        return security.build();
-    }*/
 }
